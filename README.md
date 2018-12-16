@@ -31,11 +31,16 @@ The function of this tool is to classify an email as important or not important 
 >>- emails_*.xslx
 >- introduction.ipynb (testing & evaluation notebook)
 
+## How to use
+- Consider an example usage in the provided introduction.ipynb
+>- import ranker and summarizer from the provided etool package
+>- Load the input email document(s) for scoring and categorization. The provided example is loading one of the 3 datasets that we manually created. The only 2 columns(fields) of the input file we would be using are Content (email text) and Important (manually categorized value) 
+>- Pass the input email(s) text to summarizer and print significant words/sentences
+>- Pass the input email(s) text to ranker and print score (range:0(unimportant) to 1(important)) and resulting category: important or unimportant
+
+- We have also provided a cranfield evaluation implementation
+
 ## Code Walk through
-introduction.ipynb
-- This is the file that the user would need to run
-- It imports ranker and summarizer
-- Finally it loads the test file and prints the scores for sample emails as well as the most significant words and sentences
 
 environment.py
 - This file loads spacy language model which is a CNN trained on English blogs, comments, and news stories
