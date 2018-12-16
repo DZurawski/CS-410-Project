@@ -1,6 +1,7 @@
 # E-mail Importance Ranker and Retrospective Summarizer
 This is the course project and the technology review for CS 410 - Text Information Systems at the University of Illinois.
 The function of this tool is to classify email(s) as important or not important using the spaCy toolkit and provide the user with a summary of the important topics from the corpus.
+A working professional often receive too many e-mails to reasonably address within a day. Our tool will help these users by identifying the most urgent e-mails. People also occasionally forget the specific discussion areas of e-mails received during special periods of time. Our tool provides keywords to help users recall what was being accomplished during a time period. This summary can be an effective retrospective tool for better planning in the weeks to come.
 
 **Video Presentation:** <Link to be added>
 
@@ -19,7 +20,7 @@ The function of this tool is to classify email(s) as important or not important 
 ## System requirements and Usage
 ### Pre-requisites
 - Python/NLP Packages: [spaCy](https://spacy.io), [NumPy](http://www.numpy.org), [Pandas](https://pandas.pydata.org), [pickle](https://docs.python.org/3/library/pickle.html)
-- spaCy language model: [en_core_web_lg](https://spacy.io/models/en#section-en_core_web_lg) (Installation command: python -m spacy download en_core_web_md)
+- spaCy language model: [en_core_web_lg](https://spacy.io/models/en#section-en_core_web_lg) (Installation command: python -m spacy download en_core_web_lg)
 
 ### Delivery Package 
 - The main deliverable of this project is **etools** package that provide functionality to score any input email document based on the similarity with the trained dataset that is manually evaluated by the project team members. We have also provided example usage in the provided python notebooks.
@@ -33,13 +34,13 @@ The function of this tool is to classify email(s) as important or not important 
 >- introduction.ipynb (testing & evaluation notebook)
 
 ### How to use
-- Consider an example usage in the provided introduction.ipynb
+- Consider an example usage in the provided **introduction.ipynb**
 >- import ranker and summarizer from the provided etool package
 >- Load the input email document(s) for scoring and categorization. The provided example is loading one of the 3 datasets that we manually created. The only 2 columns(fields) of the input file we would be using are Content (email text) and Important (manually categorized value) 
 >- Pass the input email(s) text to summarizer and print significant words/sentences
 >- Pass the input email(s) text to ranker and print score (range:0(unimportant) to 1(important)) and resulting category: important or unimportant
 
-- We have also provided a cranfield evaluation in cranfield-evaluation-module.ipynb
+- We have also provided a cranfield evaluation in **cranfield-evaluation-module.ipynb**
 >- Import the ranker and summarizer functions
 >- Perform the spot check and scoring
 >- Since we have utized the first 2 sets of manual classified data for training, we utilize the third set for evaluation
@@ -48,22 +49,28 @@ The function of this tool is to classify email(s) as important or not important 
 
 ### Code Walk through
 
-environment.py
-- This file loads spacy language model which is a CNN trained on English blogs, comments, and news stories
-- It also opens "pickled" pre-trained model that we trained on emails that were manually classified as important or not important by the team
+**environment.py**
+- Loads spaCy language model (en_core_web_lg) which is a CNN trained on English blogs, comments, and news stories
+- Opens "pickled" pre-trained model that we trained on emails that were manually classified as important or unimportant
 
-ranker.py
-- This file loads the training file, trains a spacy model and provides email scoring capability
+**ranker.py**
+- Loads the training file, trains a spacy model and provides email scoring capability
 It contains the following functions:
-- clean function: it cleans input strings (removes white space, changes to lowercase, etc.)
-- score function: it provides a similarity score for input email
-- is_important function: it provides a similarity score for input email but as a boolean value (true or false)
+- clean function: cleans the input document and prepares it for text mining (removes stop word & white space, changes to lowercase, etc.)
+- score function: provides a similarity score (float: 0 (imp) - 1 (unimp)) for input email based on cosine similarity with the trained data set
+- is_important function: provides boolean value of classification on whether the input email is important or not based on the similarity score (true means important)
 
-summarizer.py
-- clean function: it cleans input strings (removes white space, changes to lowercase, etc.)
-- significant_words function: returns a list of the top *words*: most significant words to *document*.
-- significant_sentences function: returns a list of the top *sentences*: most significant sentences to *document*.
-- summarizing_sentences function: return a list of the top *sentences*: best summarizing sentences to *document*.
+**summarizer.py**
+- clean function: cleans the input document and prepares it for text mining (removes stop word & white space, changes to lowercase, etc.)
+- significant_words function: returns a list of the most significant words in the input document(s)
+- significant_sentences function: returns a list of the most significant sentences in the input document(s)
+- summarizing_sentences function: returns a list of the best summarizing sentences in the input document(s)
+
+**introduction.ipynb**
+- example usage of the etools classification and summarization of the input email document(s)
+
+**cranfield-evaluation-module.ipynb**
+- compares the implemented etools classifier output with the human classified output and provides accuracy, precision and recall to judge the effectiveness of etools. 
 
 ## Team contributions
 ### Requirement analysis and evaluation of toolkits for this project
@@ -89,31 +96,5 @@ summarizer.py
 - List of important/top contacts based on frequent senders/recievers that has important email content 
 - Suggestions on de-registering from distribution lists
 - Suggestions on email templates based on common phrases/formats used frequently
-
-
-## FAQs
-### What is the function of the tool?
-
-We plan to create a suite of utilities that will help users handle many e-mails. The utilities will be able to rank the importance of e-mails with respect to the content and sender. The utilities will also be able to summarize a corpus of e-mails received during a specified time period using a set of keywords.
-
-### Who will benefit from such a tool?
-
-A working professional often receive too many e-mails to reasonably address within a day. Our tool will help these users by identifying the most urgent e-mails. People also occasionally forget the specific discussion areas of e-mails received during special periods of time. Our tool provides keywords to help users recall what was being accomplished during a time period. This summary can be an effective retrospective tool for better planning in the weeks to come.
-
-### Does this kind of tools already exist? If similar tools exist, how is your tool different from them? Would people care about the difference?
-
-There exist machine learning programs that can detect if e-mails are spam. Our tool is different in that it ranks the e-mails based on importance, so it remains up to the user whether or not an e-mail is important. Also, our tool takes into account the sender of the e-mail, whereas similar existing tools only account for the content of the e-mail. This factor may indicate that our methods will yield greater accuracy in ranking e-mail importance and, thus, users will be more satisfied with our tool.
-
-### What existing resources can you use?
-
-Currently, there are many available modules for text mining e-mails, including MeTapy, Sklearn, SpaCy and NLTK. These modules will be useful for identifying and ranking the e-mails. Also, the Enron Corpus of e-mails will be a useful resource for testing and training our utilities.
-
-### What techniques/algorithms will you use to develop the tool? 
-
-We plan to use variants of the BM25 for ranking the importance of e-mails. Our tool will infer query terms by using e-mails that the user has reported as an example of an important e-mail. We also plan to use graph theory algorithms to identify the importance of an e-mail based on frequent sender/receiver relationships.
-
-
-
-
 
 
