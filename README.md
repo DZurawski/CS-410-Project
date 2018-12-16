@@ -44,7 +44,7 @@ A working professional often receive too many e-mails to reasonably address with
 - We have also provided a cranfield evaluation in **cranfield-evaluation-module.ipynb**
 >- Import the ranker and summarizer functions
 >- Perform the spot check and scoring
->- Since we have utized the first 2 sets of manual classified data for training, we utilize the third set for evaluation
+>- Since we have utilized the first 2 sets of manual classified data for training, we utilize the third set for evaluation
 >- For every email in the test document we utilize the classifier to categorize into important or important & compare the result with manual results
 >- Calculate the values in Human-Machine metrics and subsequently calculate Accuracy, Precision and Recall.  
 
@@ -58,8 +58,8 @@ A working professional often receive too many e-mails to reasonably address with
 - Loads the training file, trains a spacy model and provides email scoring capability
 It contains the following functions:
 - clean function: cleans the input document and prepares it for text mining (removes stop word & white space, changes to lowercase, etc.)
-- score function: provides a similarity score (float: 0 (imp) - 1 (unimp)) for input email based on cosine similarity with the trained data set
-- is_important function: provides boolean value of classification on whether the input email is important or not based on the similarity score (true means important)
+- score function: provides a similarity score (float: 0 (imp) - 1 (un-imp)) for input email based on cosine similarity with the trained data set
+- is_important function: provides a Boolean value of classification on whether the input email is important or not based on the similarity score (true means important)
 
 **summarizer.py**
 - clean function: cleans the input document and prepares it for text mining (removes stop word & white space, changes to lowercase, etc.)
@@ -81,20 +81,20 @@ It contains the following functions:
 - *Ved* performed evaluation of MetaPy to complete perspective and ensure the right selection of tool happens based on text mining capabilities suited for the implementation.  
 - Based on the output of evaluation & individual POC implementations, spaCy won hands-down due to powerful, scalable features complemented with the machine-learning capabilities for the potential enhancements 
 
-### Dataset seletion and preparation
+### Dataset selection and preparation
 - We selected 25,000 uniform randomly selected e-mails from the entire bank of Enron email corpus
-- After data wrangling and cleaning efforts, each of us picked 300 distint emails for the manual classification of emails into important and unimportant categories for training and evalution of the classifier
+- After data wrangling and cleaning efforts, each of us picked 300 distinct emails for the manual classification of emails into important and unimportant categories for training and evaluation of the classifier
 - We chose to utilize the whole set of 25,000 emails for summarization module
 
 ### Implementation 
 - We collectively selected spaCy implementation of classifier by *Dan* to collaboratively develop upon, mainly due to the simplicity and yet powerful features spaCy offered
 - *Ved* manually tested the package of classifier and summarizer through introduction.ipynb as a wrapper and one set of manually categorized 300 emails. Noted and shared the observations with the team.  
-- *Gassan* wrote an evaluation module to evaluate the result of classifier to quatitatively measure the accuracy and precision of the classifier
+- *Gassan* wrote an evaluation module to evaluate the result of classifier to quantitatively measure the accuracy and precision of the classifier
 - Testing & evaluation feedback provided inputs for finetuning of classifier and summarizer which *Dan* incorporated into the code
 
 ## Potential Enhancements
 - Integrate with the Mailbox and show summary of top important emails in specific time period: week/month
-- List of important/top contacts based on frequent senders/recievers that has important email content 
+- List of important/top contacts based on frequent senders/receivers that has important email content 
 - Suggestions on de-registering from distribution lists
 - Suggestions on email templates based on common phrases/formats used frequently
 
