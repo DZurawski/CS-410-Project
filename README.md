@@ -16,12 +16,12 @@ The function of this tool is to classify an email as important or not important 
 >- Frequently used key words backed by a few top examples => this will provide common themes for weeks and months (Weekly/Monthly summary)
 >- Email statistics with basic graph analysis of well-connected group of people with an importance score, which subsequently can be used to identify and bring important emails on the top of the stack
 
-# System requirements and Usage
-## Pre-requisites
+## System requirements and Usage
+### Pre-requisites
 - Python/NLP Packages: [spaCy](https://spacy.io), [NumPy](http://www.numpy.org), [Pandas](https://pandas.pydata.org), [pickle](https://docs.python.org/3/library/pickle.html)
 - spaCy language model: [en_core_web_lg](https://spacy.io/models/en#section-en_core_web_lg) (Installation command: python -m spacy download en_core_web_md)
 
-## Delivery Package 
+### Delivery Package 
 - The main deliverable of this project is **etools** package that provide functionality to score any input email document based on the similarity with the trained dataset that is manually evaluated by the project team members. We have also provided example usage in the provided python notebooks.
 - All the project files are contained in the **Course Project** folder of this project
 >- etools package (main tool)
@@ -32,7 +32,7 @@ The function of this tool is to classify an email as important or not important 
 >>- emails_*.xslx
 >- introduction.ipynb (testing & evaluation notebook)
 
-## How to use
+### How to use
 - Consider an example usage in the provided introduction.ipynb
 >- import ranker and summarizer from the provided etool package
 >- Load the input email document(s) for scoring and categorization. The provided example is loading one of the 3 datasets that we manually created. The only 2 columns(fields) of the input file we would be using are Content (email text) and Important (manually categorized value) 
@@ -46,7 +46,7 @@ The function of this tool is to classify an email as important or not important 
 >- For every email in the test document we utilize the classifier to categorize into important or important & compare the result with manual results
 >- Calculate the values in Human-Machine metrics and subsequently calculate Accuracy, Precision and Recall.  
 
-## Code Walk through
+### Code Walk through
 
 environment.py
 - This file loads spacy language model which is a CNN trained on English blogs, comments, and news stories
