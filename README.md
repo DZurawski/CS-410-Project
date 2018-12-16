@@ -19,20 +19,8 @@ It also will show the most significant words and sentences for informational pur
 ## Pre-requisites
 - Packages: spaCy (https://spacy.io), numpy, Pandas, pickle
 - spaCy language model: en_core_web_md (Installation command: python -m spacy download en_core_web_md)
-=======
 
-**Project team**
-- Daniel Zurawski - dzuraws2@illinois.edu (Coordinator) 
-- Vedprakash Mishra - vrm2@illinois.edu 
-- Gassan Soukaev - soukaev2@illinois.edu
-
-# System requirements and Usage
-## Pre-requisites
-
-Video: 
-
-
-### Code Walk through
+## Code Walk through
 introduction.ipynb
 - This is the file that the user would need to run
 - It imports ranker and summarizer
