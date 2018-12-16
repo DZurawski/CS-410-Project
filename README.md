@@ -1,6 +1,6 @@
 # E-mail Importance Ranker and Retrospective Summarizer
 This is the course project and the technology review for CS 410 - Text Information Systems at the University of Illinois.
-The function of this tool is to classify an email as important or not important using spaCy and summarize the important topics from the corpus.
+The function of this tool is to classify email(s) as important or not important using the spaCy toolkit and provide the user with a summary of the important topics from the corpus.
 
 **Video Presentation:** <Link to be added>
 
@@ -67,29 +67,28 @@ summarizer.py
 
 ## Team contributions
 ### Requirement analysis and evaluation of toolkits for this project
-- Team conducted brainstorming sessions to evolve the idea through requirement analysis and a high-level project plan
-- Dan proposed & took spaCy toolkit through evaluation for thie project implementation
-- Gassan proposed & took NLTK toolkit through evaluation for thie project implementation
-- Ved performed evaluation of MetaPy to complete perspective and ensure the right selection of tool based on text mining capability for implementation.  
-- Based on the output of evaluation & individual POC implementations, spaCy won hands-down due to powerfull, scalable features complemented with machine-learning capability for potential enhancements 
+- Team conducted multiple brainstorming sessions to evolve the idea through requirement analysis and a high-level project plan
+- *Dan* proposed & took spaCy toolkit through evaluation for this project implementation and tech review
+- *Gassan* proposed & took NLTK toolkit through evaluation for this project implementation and tech review
+- *Ved* performed evaluation of MetaPy to complete perspective and ensure the right selection of tool happens based on text mining capabilities suited for the implementation.  
+- Based on the output of evaluation & individual POC implementations, spaCy won hands-down due to powerful, scalable features complemented with the machine-learning capabilities for the potential enhancements 
 
 ### Dataset seletion and preparation
-- We selected 25,000 uniform randomly selected e-mails from entire bank of Enron corpus
-- After data wrangling and clean, each of us picked 300 distint emails for manual categorization into important and unimportant categories for training and evalution of classifier
-- We chose to utilized whole set of 25,000 emails for summarization module
+- We selected 25,000 uniform randomly selected e-mails from the entire bank of Enron email corpus
+- After data wrangling and cleaning efforts, each of us picked 300 distint emails for the manual classification of emails into important and unimportant categories for training and evalution of the classifier
+- We chose to utilize the whole set of 25,000 emails for summarization module
 
 ### Implementation 
-- We collectively chose spaCy implementation of classifier by Dan to collaboratively develop upon given the simplicity and yet powerful features it offered
-- Ved manually tested the package of classifier and summarizer through introduction.ipynb as a wrapper and one set of manually categorized 300 emails.  
-- Gassan wrote evaluation module to evaluate the result of classifier
-- Testing & evaluation feedback provided inputs for finetuning of classifier and summarizer which Dan incorporated in the code.
+- We collectively selected spaCy implementation of classifier by *Dan* to collaboratively develop upon, mainly due to the simplicity and yet powerful features spaCy offered
+- *Ved* manually tested the package of classifier and summarizer through introduction.ipynb as a wrapper and one set of manually categorized 300 emails. Noted and shared the observations with the team.  
+- *Gassan* wrote an evaluation module to evaluate the result of classifier to quatitatively measure the accuracy and precision of the classifier
+- Testing & evaluation feedback provided inputs for finetuning of classifier and summarizer which *Dan* incorporated into the code
 
 ## Potential Enhancements
 - Integrate with the Mailbox and show summary of top important emails in specific time period: week/month
 - List of important/top contacts based on frequent senders/recievers that has important email content 
 - Suggestions on de-registering from distribution lists
 - Suggestions on email templates based on common phrases/formats used frequently
-
 
 
 ## FAQs
