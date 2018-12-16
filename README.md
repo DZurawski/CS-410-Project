@@ -1,6 +1,7 @@
 # E-mail Importance Ranker and Retrospective Summarizer
 This is the course project and the technology review for CS 410 - Text Information Systems at the University of Illinois.
 The function of this tool is to classify an email as important or not important using spaCy and summarize the important topics from the corpus.
+
 **Video Presentation:** <Link to be added>
 
 ### Project team
@@ -38,7 +39,12 @@ The function of this tool is to classify an email as important or not important 
 >- Pass the input email(s) text to summarizer and print significant words/sentences
 >- Pass the input email(s) text to ranker and print score (range:0(unimportant) to 1(important)) and resulting category: important or unimportant
 
-- We have also provided a cranfield evaluation implementation
+- We have also provided a cranfield evaluation in cranfield-evaluation-module.ipynb
+>- Import the ranker and summarizer functions
+>- Perform the spot check and scoring
+>- Since we have utized the first 2 sets of manual classified data for training, we utilize the third set for evaluation
+>- For every email in the test document we utilize the classifier to categorize into important or important & compare the result with manual results
+>- Calculate the values in Human-Machine metrics and subsequently calculate Accuracy, Precision and Recall.  
 
 ## Code Walk through
 
