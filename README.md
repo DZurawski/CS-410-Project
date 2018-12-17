@@ -4,7 +4,7 @@
 The function of this tool is to classify email(s) as important or not important using the spaCy toolkit and provide the user with a summary of the important topics from the corpus.
 A working professional often receive too many e-mails to reasonably address within a day. Our tool will help these users by identifying the most urgent e-mails. People also occasionally forget the specific discussion areas of e-mails received during special periods of time. Our tool provides important summaries to help users recall what was being accomplished during a time period. This summary can be an effective retrospective tool for better planning in the weeks to come.
 
-**Video Presentation:** Link to be added
+**Video Presentation:** https://youtu.be/qMoXzIW6nfk
 
 ### Project team
 - Daniel Zurawski - dzuraws2@illinois.edu (Coordinator) 
